@@ -21,8 +21,6 @@ correctAnswerArray = ["if (x != 10)"];
 
 var numQuestions = questionArray.length;
 
-checkBox1.checked = true;
-
 function askQuestion() {
   
   for (var i = 0; i < questionArray.length; i++) {
