@@ -6,6 +6,8 @@ var answer2 = document.querySelector(".a2");
 var answer3 = document.querySelector(".a3");
 var answer4 = document.querySelector(".a4");
 var checkBox1 = document.getElementById("#flexCheckDefault-1");
+// Find out if checkBox1 is checked
+// var stateOfBox1 = checkBox1.checked;
 
 startQuiz.addEventListener("click", askQuestion);
 
@@ -33,6 +35,7 @@ function askQuestion() {
     console.log(question);
     console.log(answer1);
     console.log(checkBox1);
+    // console.log(stateOfBox1);
   }
 }
   
