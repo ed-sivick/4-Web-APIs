@@ -1,3 +1,13 @@
+.startBtn {
+    color: black;
+    background-color: lightblue;
+    border-style: solid;
+    border-color: black;
+    font-style: italic;
+    font-size: 25px;
+    font-weight: 700;
+}
+
 body {
     background-color: lightgray;
     border-radius: 12px
