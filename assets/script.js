@@ -9,6 +9,12 @@ var button1 = document.querySelector(".ans1");
 var button2 = document.querySelector(".ans2");
 var button3 = document.querySelector(".ans3");
 var button4 = document.querySelector(".ans4");
+
+var stateOfButton1 = button1.clicked;
+var stateOfButton2 = button2.clicked;
+var stateOfButton3 = button3.clicked;
+var stateOfButton4 = button4.clicked;
+
 var userAnswer = 0;
 var userScore = 0;
 var questionNum = 0;
@@ -48,11 +54,11 @@ var questions = [{
 ]
 
 function askQuestion(question) {
-  button1.clicked = false;
-  button2.clicked = false;
-  button3.clicked = false;
-  button4.clicked = false;
-  console.log("button1 is " + button1)
+  console.log("button1 is " + stateOfButton1)
+  console.log("button2 is " + stateOfButton2)
+  console.log("button3 is " + stateOfButton3)
+  console.log("button4 is " + stateOfButton4)
+  
   if (questionNum > 4) {
     prompt("Game Is Over.  Your Score is " + userScore + " out of 5.\nType your initials below to save your Score.");
     location.reload();
@@ -68,33 +74,29 @@ function askQuestion(question) {
 }
 
 button1.addEventListener("click", function () {
-  if (button1.click === true) {
+  if (button1.clicked) {
     userAnswer = 1;
-    console.log(userAnswer);
   }
   quizAnswer();
 });
 
 button2.addEventListener("click", function () {
-  if (button2.click === true) {
+  if (button2.clicked) {
     userAnswer = 2;
-    console.log(userAnswer);
   }
   quizAnswer();
 });
 
 button3.addEventListener("click", function () {
-  if (button3.click === true) {
+  if (button3.clicked) {
     userAnswer = 3;
-    console.log(userAnswer);
   }
   quizAnswer();
 });
 
 button4.addEventListener("click", function () {
-  if (button4.click === true) {
+  if (button4.clicked) {
     userAnswer = 4;
-    console.log(userAnswer);
   }
   quizAnswer();
 });
