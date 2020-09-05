@@ -1,0 +1,96 @@
+/* *{
+box-sizing: border-box;
+margin: 0;
+padding: 0;
+} */
+
+.appDesc {
+font-family: "Comic Sans MS", cursive, sans-serif;
+font-size: 1.5rem;
+margin-top: 0.5rem;
+text-align: center;
+}
+
+/* .container {
+    height: 100%;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 0 auto;
+} */
+
+.startBtn {
+    font-family: "Comic Sans MS", cursive, sans-serif;
+    font-size: 1rem;
+    width: 15rem;
+    margin: 0.25rem auto;    
+}
+
+.scoresBtn {
+    font-family: "Comic Sans MS", cursive, sans-serif;
+    font-size: 1rem;
+    width: 15rem;
+    margin: 0.25rem auto;
+}
+.question {
+    font-family: "Comic Sans MS", cursive, sans-serif;
+    font-size: 1rem;
+    text-align: left;
+    width: 15rem;
+    height: auto;
+    margin: 0.25rem auto;
+}
+
+.answers {
+    font-family: "Comic Sans MS", cursive, sans-serif;
+    font-size: 1rem;
+    text-align: left;
+    width: 15rem;
+    margin: 0.25rem auto;
+}
+
+
+.flex-column {
+    display: flex;
+    flex-direction: column;
+}
+
+
+/* footer class style */
+.footer {
+    font-family: 'Times New Roman', Times, serif;
+    font-size: 1rem;
+    font-weight: bold;
+    text-align: center;
+    position: fixed;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    height: 3rem;
+    line-height: 3rem;
+    background-color:lightblue;
+}
+
+.p_foot {
+    margin-top: 0rem;
+}
+
+/* media query to change bg color when screen size is below 576px, xs */
+/* re-sizes image to use full viewport below 576px */
+/* main left/right margins at 0 below 576px to use entire screen */
+@media only screen and (max-width: 576px) {
+    body {
+      background-color: ivory;
+        }
+    .img-ctr {
+        display: block;
+        margin-left: auto;
+        margin-right: auto;
+        width: 100%;
+            }
+    main {
+        margin-left: 0;
+        margin-right: 0;
+            }
+        }

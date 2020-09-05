@@ -1,15 +1,14 @@
 // Add event listener to Start Quiz button
 var startQuizBtn = document.querySelector(".startBtn");
-var questionView = document.querySelector("span");
+var questionView = document.querySelector(".question");
 var answer1 = document.querySelector(".a1");
 var answer2 = document.querySelector(".a2");
 var answer3 = document.querySelector(".a3");
 var answer4 = document.querySelector(".a4");
-var checkBox1 = document.getElementById("flexCheckDefault-1");
-var checkBox2 = document.getElementById("flexCheckDefault-2");
-var checkBox3 = document.getElementById("flexCheckDefault-3");
-var checkBox4 = document.getElementById("flexCheckDefault-4");
-var stateOfBox4 = checkBox4.checked;
+var button1 = document.querySelector(".ans1");
+var button2 = document.querySelector(".ans2");
+var button3 = document.querySelector(".ans3");
+var button4 = document.querySelector(".ans4");
 var userAnswer = 0;
 var userScore = 0;
 var questionNum = 0;
@@ -49,10 +48,11 @@ var questions = [{
 ]
 
 function askQuestion(question) {
-  checkBox1.checked = false;
-  checkBox2.checked = false;
-  checkBox3.checked = false;
-  checkBox4.checked = false;
+  button1.clicked = false;
+  button2.clicked = false;
+  button3.clicked = false;
+  button4.clicked = false;
+  console.log("button1 is " + button1)
   if (questionNum > 4) {
     prompt("Game Is Over.  Your Score is " + userScore + " out of 5.\nType your initials below to save your Score.");
     location.reload();
@@ -67,59 +67,47 @@ function askQuestion(question) {
   console.log("Correct Answer is " + correctAnswer);
 }
 
-checkBox1.addEventListener("change", function () {
-  console.log(userAnswer);
-  if (this.checked) {
+button1.addEventListener("click", function () {
+  if (button1.click === true) {
     userAnswer = 1;
+    console.log(userAnswer);
   }
   quizAnswer();
 });
 
-checkBox2.addEventListener("change", function () {
-  if (this.checked) {
+button2.addEventListener("click", function () {
+  if (button2.click === true) {
     userAnswer = 2;
+    console.log(userAnswer);
   }
   quizAnswer();
 });
 
-checkBox3.addEventListener("change", function () {
-  if (this.checked) {
+button3.addEventListener("click", function () {
+  if (button3.click === true) {
     userAnswer = 3;
+    console.log(userAnswer);
   }
   quizAnswer();
 });
 
-checkBox4.addEventListener("change", function () {
-  if (this.checked) {
+button4.addEventListener("click", function () {
+  if (button4.click === true) {
     userAnswer = 4;
+    console.log(userAnswer);
   }
   quizAnswer();
 });
 
 function quizAnswer() {
-
-  function sleep(delay) {
-    var start = new Date().getTime();
-    while (new Date().getTime() < start + delay);
-  }
-  sleep(1000);
-
   if (userAnswer === correctAnswer) {
     userScore++;
     questionNum++;
+    console.log(userScore);
+    console.log(questionNum);
   } else {
     questionNum++
     // Also deduct 5 seconds from timer
   }
   askQuestion(questions[questionNum])
 };
-
-
-
-
-
-// function sleep(delay) {
-//   var start = new Date().getTime();
-//   while (new Date().getTime() < start + delay);
-// }
-// sleep(1000);
