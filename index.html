@@ -16,8 +16,9 @@
 
     <title>JavaScript Fundamentals Quiz</title>
 
-    <div class="appDesc">
-        <p>JavaScript Fundamentals Quiz</p>
+    <div>
+        <p class="appDesc">JavaScript Fundamentals Quiz</p>
+        <p class= "instruction">Press the correct answer button for each question before Time Remaining goes to 00:00</p>
     </div>
 </head>
 
@@ -28,21 +29,21 @@
         <div class="row">
             <!-- Grid: Row 1, Col 1 -->
             <div class="button flex-column flex-center col-md-12">
-                <button type="button" class="startBtn btn btn-primary btn-lg">Press To Start Quiz</button>
+                <button type="button" class="startBtn reloadButtons btn btn-primary btn-lg">Press To Start Quiz</button>
             </div>
         </div>
         <!-- Grid: Row 2 -->
         <div class="row">
             <!-- Grid: Row 2, Col 1 -->
             <div class="button flex-column flex-center col-md-12">
-                <button type="button" class="scoresBtn btn btn-primary btn-lg">Press To View High Scores</button>
+                <button type="button" class="scoresBtn reloadButtons btn btn-primary btn-lg">Press To View High Scores</button>
             </div>
         </div>
         <!-- Grid: Row 3 -->
         <div class="row">
             <!-- Grid: Row 3, Col 1 -->
             <div class="flex-column flex-center col-md-12">
-                <button type="button" class="question btn btn-outline-primary">question</button>
+                <button type="button" class="question btn btn-outline-primary">Question</button>
             </div>
         </div>
         </div>
@@ -50,46 +51,42 @@
         <div class="row">
             <!-- Grid: Row 4, Col 1 -->
             <div class="flex-column flex-center col-md-12">
-                <button type="button"
-                    class="a1 ans1 answers btn btn-outline-primary">answer1</button>
+                <button type="button" id="btn1" class="a1 ans1 answers btn btn-outline-primary">Answer 1</button>
             </div>
         </div>
         <!-- Grid: Row 5 -->
         <div class="row">
             <!-- Grid: Row 5, Col 1 -->
             <div class="flex-column flex-center col-md-12">
-                <button type="button"
-                    class="a2 ans2 answers btn btn-outline-primary">answer2</button>
+                <button type="button" id="btn2" class="a2 ans2 answers btn btn-outline-primary">Answer 2</button>
             </div>
         </div>
         <!-- Grid: Row 6 -->
         <div class="row">
             <!-- Grid: Row 6, Col 1 -->
             <div class="flex-column flex-center col-md-12">
-                <button type="button"
-                    class="a3 ans3 answers btn btn-outline-primary">answer3</button>
+                <button type="button" id="btn3" class="a3 ans3 answers btn btn-outline-primary">Answer 3</button>
             </div>
         </div>
         <!-- Grid: Row 7 -->
         <div class="row">
             <!-- Grid: Row 7, Col 1 -->
             <div class="flex-column flex-center col-md-12">
-                <button type="button"
-                    class="a4 ans4 answers btn btn-outline-primary">answer4</button>
+                <button type="button" id="btn4" class="a4 ans4 answers btn btn-outline-primary">Answer 4</button>
             </div>
         </div>
         <!-- Grid: Row 8 -->
         <div class="row">
             <!-- Grid: Row 8, Col 1 -->
             <div class="flex-column flex-center col-md-12">
-                <button type="button" class="rightWrong answers btn btn-outline-primary">right-wrong</button>
+                <button type="button" class="rightWrong answers btn btn-outline-primary">Right-Wrong</button>
             </div>
         </div>
         <!-- Grid: Row 9 -->
         <div class="row">
             <!-- Grid: Row 9, Col 1 -->
-            <div class="flex-column flex-center col-md-12">
-                <button type="button" class="timer answers btn btn-outline-primary">time remaining</button>
+            <div class="timeField flex-column flex-center col-md-12">
+                <button type="button" class="timer answers btn btn-outline-primary">Time Remaining:</button>
             </div>
         </div>
 

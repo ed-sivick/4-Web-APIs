@@ -1,29 +1,59 @@
 // Add event listener to Start Quiz button
 var startQuizBtn = document.querySelector(".startBtn");
+var highScoreBtn = document.querySelector(".scoresBtn");
 var questionView = document.querySelector(".question");
 var answer1 = document.querySelector(".a1");
 var answer2 = document.querySelector(".a2");
 var answer3 = document.querySelector(".a3");
 var answer4 = document.querySelector(".a4");
-var button1 = document.querySelector(".ans1");
-var button2 = document.querySelector(".ans2");
-var button3 = document.querySelector(".ans3");
-var button4 = document.querySelector(".ans4");
+var rightWrong = document.querySelector(".rightWrong");
+var timer = document.querySelector(".timer");
 
-var stateOfButton1 = button1.clicked;
-var stateOfButton2 = button2.clicked;
-var stateOfButton3 = button3.clicked;
-var stateOfButton4 = button4.clicked;
+var userInitials = "";
+var highScores = {
+  initials: userInitials,
+  score: userScore
+};
+
+// Timer variables
+var initialSec = 30;
+var currentSec = initialSec;
+var displayMin;
+var displaySec;
+var timeRemain;
+
+var button1 = document.getElementById("btn1");
+var button2 = document.getElementById("btn2");
+var button3 = document.getElementById("btn3");
+var button4 = document.getElementById("btn4");
+
+questionView.style.visibility = "hidden";
+answer1.style.visibility = "hidden";
+answer2.style.visibility = "hidden";
+answer3.style.visibility = "hidden";
+answer4.style.visibility = "hidden";
+rightWrong.style.visibility = "hidden";
+timer.style.visibility = "hidden";
 
 var userAnswer = 0;
 var userScore = 0;
 var questionNum = 0;
 var correctAnswer = 0;
 
-startQuizBtn.addEventListener("click", startQuiz);
 
+startQuizBtn.addEventListener("click", startQuiz);
 function startQuiz() {
-  askQuestion(questions[questionNum])
+
+  questionView.style.visibility = "visible";
+  answer1.style.visibility = "visible";
+  answer2.style.visibility = "visible";
+  answer3.style.visibility = "visible";
+  answer4.style.visibility = "visible";
+  rightWrong.style.visibility = "hidden";
+  timer.style.visibility = "visible";
+  // setTimeout(decrement,1000);
+  setTime();
+  askQuestion(questions[questionNum]);
 }
 
 var questions = [{
@@ -54,16 +84,47 @@ var questions = [{
 ]
 
 function askQuestion(question) {
-  console.log("button1 is " + stateOfButton1)
-  console.log("button2 is " + stateOfButton2)
-  console.log("button3 is " + stateOfButton3)
-  console.log("button4 is " + stateOfButton4)
-  
-  if (questionNum > 4) {
-    prompt("Game Is Over.  Your Score is " + userScore + " out of 5.\nType your initials below to save your Score.");
+
+  startQuizBtn.style.display = "none";
+  highScoreBtn.style.display = "none";
+
+  // Check Question Number or Timer value = 0 to determine End of Quiz
+  if (questionNum > questions.length - 1) {
+    saveScore();
+    function saveScore() {
+      // User must enter characters in the field or the game score will not be saved
+      userInitials = prompt("Game Is Over.  Your Score is " + userScore + " out of " + questions.length + ".\nType your initials below to save your Score.");
+    }
+    if (userInitials) {
+
+
+      localStorage.setItem("mostRecentScore", userScore);
+
+      // Save High Scores to local storage
+
+      var mostRecentScore = localStorage.getItem("mostRecentScore");
+
+      var highScores = JSON.parse(localStorage.getItem("highScores")) || [];
+
+      var score = {
+        initials: userInitials,
+        score: mostRecentScore
+      };
+      console.log(score);
+      highScores.push(score);
+      highScores.sort((a, b) => b.score - a.score);
+      highScores.splice(5);
+      localStorage.setItem("highScores", JSON.stringify(highScores));
+
+      console.log(highScores);
+    }
+
+    startQuizBtn.style.visibility = "visible";
+    highScoreBtn.style.visibility = "visible";
+    questionView.style.visibility = "hidden";
+    // End of Quiz Questions determines "reload" of app
     location.reload();
   }
-
   questionView.textContent = question.question;
   answer1.textContent = question.choices[0];
   answer2.textContent = question.choices[1];
@@ -72,30 +133,30 @@ function askQuestion(question) {
   correctAnswer = question.answer;
   console.log("Correct Answer is " + correctAnswer);
 }
-
+// Checks which answer button user clicks (button1 thru button4) 
 button1.addEventListener("click", function () {
-  if (button1.clicked) {
+  if (button1.click) {
     userAnswer = 1;
   }
   quizAnswer();
 });
 
 button2.addEventListener("click", function () {
-  if (button2.clicked) {
+  if (button2.click) {
     userAnswer = 2;
   }
   quizAnswer();
 });
 
 button3.addEventListener("click", function () {
-  if (button3.clicked) {
+  if (button3.click) {
     userAnswer = 3;
   }
   quizAnswer();
 });
 
 button4.addEventListener("click", function () {
-  if (button4.clicked) {
+  if (button4.click) {
     userAnswer = 4;
   }
   quizAnswer();
@@ -103,13 +164,51 @@ button4.addEventListener("click", function () {
 
 function quizAnswer() {
   if (userAnswer === correctAnswer) {
+    rightWrong.style.visibility = "visible";
+    rightWrong.textContent = "Your answer is CORRECT";
     userScore++;
     questionNum++;
-    console.log(userScore);
-    console.log(questionNum);
   } else {
     questionNum++
+    rightWrong.style.visibility = "visible";
+    rightWrong.textContent = "Your answer is WRONG";
     // Also deduct 5 seconds from timer
   }
   askQuestion(questions[questionNum])
 };
+
+function setTime() {
+  var timerInterval = setInterval(function () {
+    displaySec = currentSec % 60;
+    displayMin = Math.floor(currentSec / 60) % 60;
+
+    if (displayMin <= 9) displayMin = "0" + displayMin;
+    if (displaySec <= 9) displaySec = "0" + displaySec;
+    currentSec--;
+    timer.textContent = "Time Remaining: " + displayMin + ":" + displaySec;
+
+    if (currentSec < -1) {
+      clearInterval(timerInterval);
+      // Check timeRemain value = 0 to determine End of Quiz
+      userInitials = prompt("Game Is Over.  Your Score is " + userScore + " out of " + questions.length + ".\nType your initials below to save your Score.");
+      startQuizBtn.style.visibility = "visible";
+      highScoreBtn.style.visibility = "visible";
+      questionView.style.visibility = "hidden";
+      // Timer at 0 determines "reload" of app
+      location.reload();
+
+    }
+
+  }, 1000);
+}
+
+// User Views High Scores 
+highScoreBtn.addEventListener("click", function () {
+  if (highScoreBtn.click) {
+    highScores = JSON.parse(localStorage.getItem("highScores")) || [];
+    console.log(highScores);
+
+   alert(highScores.initials[0] + "  " + highScores.score[0]);
+
+  }
+});
