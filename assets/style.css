@@ -1,18 +1,18 @@
 /* Style for app description */
 .appDesc {
-font-family: "Comic Sans MS", cursive, sans-serif;
-font-size: 1.5rem;
-margin-top: 0.5rem;
-text-align: center;
+    font-family: 'Times New Roman', Times, serif;
+    font-size: 1.5rem;
+    margin-top: 0.5rem;
+    text-align: center;
 }
 /* Style for instruction text */
 .instruction {
-    font-family: "Comic Sans MS", cursive, sans-serif;
+    font-family: 'Times New Roman', Times, serif;
     font-size: 1.0rem;
     color: red;
     margin-top: 0.1rem;
     text-align: center;
-    }
+}
 /* Style to align button items to center of page column */
 .flex-column {
     display: flex;
@@ -20,38 +20,40 @@ text-align: center;
 }
 /* Style for Press To Start and Pres To View High Scores buttons */
 .reloadButtons {
-    font-family: "Comic Sans MS", cursive, sans-serif;
+    font-family: 'Times New Roman', Times, serif;
     font-size: 1rem;
     width: 15rem;
     margin: 0.25rem auto;    
 }
 /* Style for High Scores text */
 #listScores {
-    font-family: "Comic Sans MS", cursive, sans-serif;
+    font-family: 'Times New Roman', Times, serif;
     font-size: 1.0rem;
     color: black;
     margin: auto;
 }
 /* Style for High Scores list div */
 .list {
-    font-family: "Comic Sans MS", cursive, sans-serif;
+    font-family: 'Times New Roman', Times, serif;
     font-size: 1.0rem;
     color: red;
     margin: auto;  
 }
 /* Style question div */
 .question {
-    font-family: "Comic Sans MS", cursive, sans-serif;
+    font-family: 'Times New Roman', Times, serif;
     font-size: 1rem;
+    color: black;
     text-align: left;
     width: 15rem;
     height: auto;
     margin: 0.25rem auto;
 }
-/* Style answer buttons */
+/* Style answer, right-wrong, time Remaining buttons */
 .answers {
-    font-family: "Comic Sans MS", cursive, sans-serif;
+    font-family: 'Times New Roman', Times, serif;
     font-size: 1rem;
+    color: black;
     text-align: left;
     width: 15rem;
     margin: 0.25rem auto;

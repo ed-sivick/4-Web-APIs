@@ -21,7 +21,7 @@ A total of seven buttons were utilized in the code:
 
 ___
 ## Layout: style.css
-The CSS file utilized styling that positioned all HTML elements in the center of the page. The purpose of this was to have the app responsive, giving it the ability to fit multiple screen sizes.  Color variations and text sizing were kept to a minimum.  A Comic Sans font was used throughout the page to give the HTML page a casual appearance.  The sticky footer was styled in the same manner as the previous "Responsive Portfolio" project.  A **media query** was added to change the content appearance (background color) below 576px viewport size.
+The CSS file utilized styling that positioned all HTML elements in the center of the page. The purpose of this was to have the app responsive, giving it the ability to fit multiple screen sizes.  Color variations and text sizing were kept to a minimum.  A Comic Sans font was originally used throughout the page to give the HTML page a casual appearance, but it appeared cursive and hard to read on my mobile phone.  For that reason I changed all fonts to Times New Roman.  The sticky footer was styled in the same manner as the previous "Responsive Portfolio" project.  A **media query** was added to change the content appearance (background color) below 576px viewport size.
 
 ___
 ## Layout: script.js
