@@ -11,6 +11,7 @@ var answer4 = document.querySelector(".a4");
 var rightWrong = document.querySelector(".rightWrong");
 var timer = document.querySelector(".timer");
 
+// User data stored to local storage
 var userInitials = "";
 var highScores = {
   initials: userInitials,
@@ -23,13 +24,13 @@ var currentSec = initialSec;
 var displayMin;
 var displaySec;
 var timeRemain;
-
+// Answer button variables
 var button1 = document.getElementById("btn1");
 var button2 = document.getElementById("btn2");
 var button3 = document.getElementById("btn3");
 var button4 = document.getElementById("btn4");
 
-// Make question & answer fields hidden
+// Hide question & answer buttons
 questionView.style.visibility = "hidden";
 answer1.style.visibility = "hidden";
 answer2.style.visibility = "hidden";
@@ -38,11 +39,11 @@ answer4.style.visibility = "hidden";
 rightWrong.style.visibility = "hidden";
 timer.style.visibility = "hidden";
 
+// Quiz and user variables
 var userAnswer = 0;
 var userScore = 0;
 var questionNum = 0;
 var correctAnswer = 0;
-
 
 startQuizBtn.addEventListener("click", startQuiz);
 function startQuiz() {
@@ -59,7 +60,7 @@ function startQuiz() {
   setTime();
   askQuestion(questions[questionNum]);
 }
-// Quiz questions/answers
+// Quiz questions/answers object
 var questions = [{
   question: "(1): Which is a correct IF statement if 'x' is NOT equal to 10?",
   choices: ["if (x <> 10)", "if (x =! 10)", "if (x not= 10)", "if (x != 10)"],
@@ -88,7 +89,7 @@ var questions = [{
 ]
 
 function askQuestion(question) {
-
+// Set Display to none for Start Quiz, View Scores, and Score List so that they vacate their space taken
   startQuizBtn.style.display = "none";
   highScoreBtn.style.display = "none";
   scoreList.style.display = "none";
@@ -160,6 +161,7 @@ button4.addEventListener("click", function () {
   quizAnswer();
 });
 
+// Check if user answer is correct or wrong
 function quizAnswer() {
   if (userAnswer === correctAnswer) {
     rightWrong.style.visibility = "visible";
@@ -176,6 +178,7 @@ function quizAnswer() {
   askQuestion(questions[questionNum])
 };
 
+// Start timer from value assigned to initialSec variable
 function setTime() {
   var timerInterval = setInterval(function () {
     displaySec = currentSec % 60;
@@ -190,6 +193,28 @@ function setTime() {
       clearInterval(timerInterval);
       // Check timeRemain value = 0 to determine End of Quiz
       alert("The timer has expired.  The Quiz Is Over.");
+      saveScore();
+      function saveScore() {
+        // User must enter characters in the field or the game score will not be saved
+        userInitials = prompt("Game Is Over.  Your Score is " + userScore + " out of " + questions.length + ".\nType your initials below to save your Score.");
+      }
+      if (userInitials) {
+  // Store initials and score to local storage
+        localStorage.setItem("mostRecentScore", userScore);
+        var mostRecentScore = localStorage.getItem("mostRecentScore");
+        var highScores = JSON.parse(localStorage.getItem("highScores")) || [];
+  
+        var score = {
+          initials: userInitials,
+          score: mostRecentScore
+        };
+        console.log(score);
+        highScores.push(score);
+        highScores.sort((a, b) => b.score - a.score);
+        highScores.splice(5);
+        localStorage.setItem("highScores", JSON.stringify(highScores));
+      }
+  // Make Start Quiz, View High Scores buttons visible - hide question field
       startQuizBtn.style.visibility = "visible";
       highScoreBtn.style.visibility = "visible";
       questionView.style.visibility = "hidden";

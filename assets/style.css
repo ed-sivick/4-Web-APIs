@@ -1,4 +1,4 @@
-
+/* Style for app description */
 .appDesc {
 font-family: "Comic Sans MS", cursive, sans-serif;
 font-size: 1.5rem;
@@ -13,26 +13,26 @@ text-align: center;
     margin-top: 0.1rem;
     text-align: center;
     }
-
+/* Style to align button items to center of page column */
 .flex-column {
     display: flex;
     flex-direction: column;
 }
-
+/* Style for Press To Start and Pres To View High Scores buttons */
 .reloadButtons {
     font-family: "Comic Sans MS", cursive, sans-serif;
     font-size: 1rem;
     width: 15rem;
     margin: 0.25rem auto;    
 }
-
+/* Style for High Scores text */
 #listScores {
     font-family: "Comic Sans MS", cursive, sans-serif;
     font-size: 1.0rem;
     color: black;
     margin: auto;
 }
-/* Style for High Scores list */
+/* Style for High Scores list div */
 .list {
     font-family: "Comic Sans MS", cursive, sans-serif;
     font-size: 1.0rem;
@@ -56,13 +56,7 @@ text-align: center;
     width: 15rem;
     margin: 0.25rem auto;
 }
-
-.flex-column {
-    display: flex;
-    flex-direction: column;
-}
-
-/* footer class style */
+/* footer div class style */
 .footer {
     font-family: 'Times New Roman', Times, serif;
     font-size: 1rem;
@@ -76,7 +70,7 @@ text-align: center;
     line-height: 3rem;
     background-color:#007bff;
 }
-
+/* Style for footer text */
 .p_foot {
     margin-top: 0rem;
 }
