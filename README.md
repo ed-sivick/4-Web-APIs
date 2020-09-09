@@ -7,7 +7,8 @@ When the user clicks a start button, a timer will start and the user is presente
 ___
 ## Layout: index.html
 The HTML file was built using Bootstrap buttons with an embedded div used to display the High Scores List.  It consists of 9 rows.  Each row has has one column, **col-md-12**, and all buttons / text are positioned to the center of the page.  A sticky footer was added to display the Author and Copyright year.  
-A total of seven buttons were utilized in the code:  
+A total of nine buttons were utilized in the code:  
+  
 - a button to press and allow the user to start the quiz  
 - a button to press and view the high scores  
 - a button to display the quiz question  
