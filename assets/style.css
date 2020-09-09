@@ -18,7 +18,7 @@
     display: flex;
     flex-direction: column;
 }
-/* Style for Press To Start and Pres To View High Scores buttons */
+/* Style for Press To Start and Press To View High Scores buttons */
 .reloadButtons {
     font-family: 'Times New Roman', Times, serif;
     font-size: 1rem;

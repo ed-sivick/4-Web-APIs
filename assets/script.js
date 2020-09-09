@@ -11,7 +11,7 @@ var answer4 = document.querySelector(".a4");
 var rightWrong = document.querySelector(".rightWrong");
 var timer = document.querySelector(".timer");
 
-// User data stored to local storage
+// User data sent to local storage
 var userInitials = "";
 var highScores = {
   initials: userInitials,
