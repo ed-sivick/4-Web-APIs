@@ -2,6 +2,7 @@
 .appDesc {
     font-family: 'Times New Roman', Times, serif;
     font-size: 1.5rem;
+    font-weight: bold;
     margin-top: 0.5rem;
     text-align: center;
 }
@@ -22,6 +23,8 @@
 .reloadButtons {
     font-family: 'Times New Roman', Times, serif;
     font-size: 1rem;
+    color: black;
+    font-weight: bold;
     width: 15rem;
     margin: 0.25rem auto;    
 }
@@ -30,6 +33,7 @@
     font-family: 'Times New Roman', Times, serif;
     font-size: 1.0rem;
     color: black;
+    font-weight: bold;
     margin: auto;
 }
 /* Style for High Scores list div */
@@ -44,6 +48,7 @@
     font-family: 'Times New Roman', Times, serif;
     font-size: 1rem;
     color: black;
+    font-weight: bold;
     text-align: left;
     width: 15rem;
     height: auto;
@@ -54,6 +59,7 @@
     font-family: 'Times New Roman', Times, serif;
     font-size: 1rem;
     color: black;
+    font-weight: bold;
     text-align: left;
     width: 15rem;
     margin: 0.25rem auto;
