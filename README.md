@@ -33,7 +33,7 @@ The user can view the Top 5 Scores by pressing the **Press To View High Scores"*
 
 ___
 ## Summary
-Coding assessments can be very advantageous to employers seeking qualified web developers.  Although it is not the only metric some employers use when judging prospective employees, many use it to determine the skill set of applicants. This project was difficult since there were many user and application operations to consider.  I challenged myself to complete this app using only one HTML and one JavaScript file. I was ablr to achieve this through the use of the visibility property in JavaScript that enabled me to use "hidden", "visible, and "none" on many HTML elements. It was definitely a very time consuming process with many trial and error code modifications.
+Coding assessments can be very advantageous to employers seeking qualified web developers.  Although it is not the only metric some employers use when judging prospective employees, many use it to determine the skill set of applicants. This project was difficult since there were many user and application operations to consider.  I challenged myself to complete this app using only one HTML and one JavaScript file. I was able to achieve this through the use of the visibility property in JavaScript that enabled me to use "hidden", "visible, and "none" on many HTML elements. It was definitely a very time consuming process with many trial and error code modifications.
 
 ## Application Links and Images  
 **Links:**  
