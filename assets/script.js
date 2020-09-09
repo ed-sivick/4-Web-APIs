@@ -1,4 +1,5 @@
 // Add event listener to Start Quiz button
+// Declare variables for button elements, and corresponding user inputs/outputs
 var startQuizBtn = document.querySelector(".startBtn");
 var highScoreBtn = document.querySelector(".scoresBtn");
 var scoreList = document.querySelector(".list");
@@ -17,7 +18,7 @@ var highScores = {
 };
 
 // Timer variables
-var initialSec = 30;
+var initialSec = 90;
 var currentSec = initialSec;
 var displayMin;
 var displaySec;
@@ -185,10 +186,13 @@ function setTime() {
     currentSec--;
     timer.textContent = "Time Remaining: " + displayMin + ":" + displaySec;
 
-    if (currentSec < 0) {
+    if (currentSec < -1) {
       clearInterval(timerInterval);
       // Check timeRemain value = 0 to determine End of Quiz
-      saveScore();
+      alert("The timer has expired.  The Quiz Is Over.");
+      startQuizBtn.style.visibility = "visible";
+      highScoreBtn.style.visibility = "visible";
+      questionView.style.visibility = "hidden";
       // Timer at 0 determines "reload" of app
       location.reload();
 

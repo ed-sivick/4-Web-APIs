@@ -5,7 +5,7 @@ font-size: 1.5rem;
 margin-top: 0.5rem;
 text-align: center;
 }
-
+/* Style for instruction text */
 .instruction {
     font-family: "Comic Sans MS", cursive, sans-serif;
     font-size: 1.0rem;
@@ -32,14 +32,14 @@ text-align: center;
     color: black;
     margin: auto;
 }
-
+/* Style for High Scores list */
 .list {
     font-family: "Comic Sans MS", cursive, sans-serif;
     font-size: 1.0rem;
     color: red;
     margin: auto;  
 }
-
+/* Style question div */
 .question {
     font-family: "Comic Sans MS", cursive, sans-serif;
     font-size: 1rem;
@@ -48,7 +48,7 @@ text-align: center;
     height: auto;
     margin: 0.25rem auto;
 }
-
+/* Style answer buttons */
 .answers {
     font-family: "Comic Sans MS", cursive, sans-serif;
     font-size: 1rem;
