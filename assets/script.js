@@ -1,6 +1,7 @@
 // Add event listener to Start Quiz button
 var startQuizBtn = document.querySelector(".startBtn");
 var highScoreBtn = document.querySelector(".scoresBtn");
+var scoreList = document.querySelector(".list");
 var questionView = document.querySelector(".question");
 var answer1 = document.querySelector(".a1");
 var answer2 = document.querySelector(".a2");
@@ -27,6 +28,7 @@ var button2 = document.getElementById("btn2");
 var button3 = document.getElementById("btn3");
 var button4 = document.getElementById("btn4");
 
+// Make question & answer fields hidden
 questionView.style.visibility = "hidden";
 answer1.style.visibility = "hidden";
 answer2.style.visibility = "hidden";
@@ -44,6 +46,7 @@ var correctAnswer = 0;
 startQuizBtn.addEventListener("click", startQuiz);
 function startQuiz() {
 
+// Make question, answer, timer fields visible - rightWrong hidden until answer selected 
   questionView.style.visibility = "visible";
   answer1.style.visibility = "visible";
   answer2.style.visibility = "visible";
@@ -55,7 +58,7 @@ function startQuiz() {
   setTime();
   askQuestion(questions[questionNum]);
 }
-
+// Quiz questions/answers
 var questions = [{
   question: "(1): Which is a correct IF statement if 'x' is NOT equal to 10?",
   choices: ["if (x <> 10)", "if (x =! 10)", "if (x not= 10)", "if (x != 10)"],
@@ -87,6 +90,7 @@ function askQuestion(question) {
 
   startQuizBtn.style.display = "none";
   highScoreBtn.style.display = "none";
+  scoreList.style.display = "none";
 
   // Check Question Number or Timer value = 0 to determine End of Quiz
   if (questionNum > questions.length - 1) {
@@ -96,14 +100,9 @@ function askQuestion(question) {
       userInitials = prompt("Game Is Over.  Your Score is " + userScore + " out of " + questions.length + ".\nType your initials below to save your Score.");
     }
     if (userInitials) {
-
-
+// Store initials and score to local storage
       localStorage.setItem("mostRecentScore", userScore);
-
-      // Save High Scores to local storage
-
       var mostRecentScore = localStorage.getItem("mostRecentScore");
-
       var highScores = JSON.parse(localStorage.getItem("highScores")) || [];
 
       var score = {
@@ -115,10 +114,8 @@ function askQuestion(question) {
       highScores.sort((a, b) => b.score - a.score);
       highScores.splice(5);
       localStorage.setItem("highScores", JSON.stringify(highScores));
-
-      console.log(highScores);
     }
-
+// Make Start Quiz, View High Scores buttons visible - hide question field
     startQuizBtn.style.visibility = "visible";
     highScoreBtn.style.visibility = "visible";
     questionView.style.visibility = "hidden";
@@ -172,7 +169,8 @@ function quizAnswer() {
     questionNum++
     rightWrong.style.visibility = "visible";
     rightWrong.textContent = "Your answer is WRONG";
-    // Also deduct 5 seconds from timer
+    // Deduct 10 seconds from timer
+    currentSec = (currentSec - 10);  
   }
   askQuestion(questions[questionNum])
 };
@@ -187,13 +185,10 @@ function setTime() {
     currentSec--;
     timer.textContent = "Time Remaining: " + displayMin + ":" + displaySec;
 
-    if (currentSec < -1) {
+    if (currentSec < 0) {
       clearInterval(timerInterval);
       // Check timeRemain value = 0 to determine End of Quiz
-      userInitials = prompt("Game Is Over.  Your Score is " + userScore + " out of " + questions.length + ".\nType your initials below to save your Score.");
-      startQuizBtn.style.visibility = "visible";
-      highScoreBtn.style.visibility = "visible";
-      questionView.style.visibility = "hidden";
+      saveScore();
       // Timer at 0 determines "reload" of app
       location.reload();
 
@@ -206,9 +201,14 @@ function setTime() {
 highScoreBtn.addEventListener("click", function () {
   if (highScoreBtn.click) {
     highScores = JSON.parse(localStorage.getItem("highScores")) || [];
-    console.log(highScores);
-
-   alert(highScores.initials[0] + "  " + highScores.score[0]);
+    for (var i = 0; i < highScores.length; i++) {
+      var liElem = document.createElement("li");
+      liElem.textContent = highScores[i].initials + "--> " + highScores[i].score + "/" + questions.length;
+      var olElem = document.getElementById("listScores");
+      olElem.appendChild(liElem);
+      highScoreBtn.style.display = "none";
+      
+    }
 
   }
 });

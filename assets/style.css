@@ -26,6 +26,20 @@ text-align: center;
     margin: 0.25rem auto;    
 }
 
+#listScores {
+    font-family: "Comic Sans MS", cursive, sans-serif;
+    font-size: 1.0rem;
+    color: black;
+    margin: auto;
+}
+
+.list {
+    font-family: "Comic Sans MS", cursive, sans-serif;
+    font-size: 1.0rem;
+    color: red;
+    margin: auto;  
+}
+
 .question {
     font-family: "Comic Sans MS", cursive, sans-serif;
     font-size: 1rem;

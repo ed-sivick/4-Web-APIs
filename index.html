@@ -15,15 +15,15 @@
     <link rel="stylesheet" href="assets/style.css">
 
     <title>JavaScript Fundamentals Quiz</title>
-<!-- Quiz Tile and Instructions -->
+    <!-- Quiz Tile and Instructions -->
     <div>
         <p class="appDesc">JavaScript Fundamentals Quiz</p>
-        <p class="instruction">Press the correct answer button for each question before Time Remaining goes to 00:00</p>
+        <p class="instruction">Press the correct answer button for each question before Time Remaining is: 00:00<br> There is a 10 second penalty for a wrong answer.</p>
     </div>
 </head>
 
 <body>
-<!-- Container using Bootstrap buttons -->
+    <!-- Container using Bootstrap buttons -->
     <main class="container">
         <!-- Grid: Row 1 -->
         <div class="row">
@@ -38,6 +38,10 @@
             <div class="button flex-column flex-center col-md-12">
                 <button type="button" class="scoresBtn reloadButtons btn btn-primary btn-lg">Press To View High
                     Scores</button>
+            </div>
+            <div class = "list">
+                <ol id="listScores">
+                </ol>
             </div>
         </div>
         <!-- Grid: Row 3 -->
