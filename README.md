@@ -38,10 +38,10 @@ Coding assessments can be very advantageous to employers seeking qualified web d
 
 ## Application Links and Images  
 **Links:**  
-Application link: (https://ed-sivick.github.io/4-Web-APIs/)  
-index.html code: (https://github.com/ed-sivick/4-Web-APIs/blob/master/index.html)  
-JavaScript.js code: (https://github.com/ed-sivick/4-Web-APIs/blob/master/assets/script.js)  
-style.css code: (https://github.com/ed-sivick/4-Web-APIs/blob/master/assets/style.css)
+Application link: (https://ed-sivick.github.io/4-timed_code_quiz/)  
+index.html code: (https://github.com/ed-sivick/4-timed_code_quiz/blob/master/index.html)  
+JavaScript.js code: (https://github.com/ed-sivick/4-timed_code_quiz/blob/master/assets/script.js)  
+style.css code: (https://github.com/ed-sivick/4-timed_code_quiz/blob/master/assets/style.css)
 
 **Application Image Examples:** Hover the mouse over each image for a brief description. 
 <p align="left">
